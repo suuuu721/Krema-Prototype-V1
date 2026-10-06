@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KREMA ISI Yogyakarta — Kreasi Mahasiswa</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<style>
+:root{--bg:#fff8ec;--ink:#1f1a3d;--card:#fff;--muted:#5d5878;--pink:#ff5c8a;--yellow:#ffc933;--teal:#19b3a6;--blue:#4b5bff;--line:#1f1a3d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17142e;--ink:#fff4de;--card:#241f45;--muted:#b9b3d6;--line:#fff4de}}
+:root[data-theme="dark"]{--bg:#17142e;--ink:#fff4de;--card:#241f45;--muted:#b9b3d6;--line:#fff4de}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.logo{font-family:Fredoka,"Trebuchet MS",sans-serif;margin:0}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:2px solid var(--line);z-index:5}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.logo{font-size:1.4rem;font-weight:700}.logo span{color:var(--pink)}
+nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;font-weight:600;font-size:.9rem}
+nav a{text-decoration:none}nav a:hover{color:var(--pink)}
+@media(max-width:560px){nav ul{gap:10px;font-size:.8rem}}
+
+.hero{padding:64px 0 48px;text-align:center;position:relative;overflow:hidden}
+.tag{display:inline-block;background:var(--yellow);color:#1f1a3d;border:2px solid var(--line);border-radius:99px;padding:4px 16px;font-weight:600;font-size:.85rem;transform:rotate(-2deg)}
+.hero h1{font-size:clamp(3rem,13vw,7rem);line-height:1;margin:18px 0 8px;letter-spacing:-1px}
+.hero h1 b{color:var(--pink)}
+.hero p.sub{max-width:560px;margin:0 auto 24px;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;padding:12px 26px;border-radius:14px;border:2px solid var(--line);box-shadow:4px 4px 0 var(--line);transition:.15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--line)}
+.btn.alt{background:var(--yellow);color:#1f1a3d;margin-left:8px}
+.blob{position:absolute;border-radius:50%;z-index:0;opacity:.9;animation:fl 6s ease-in-out infinite}
+.b1{width:90px;height:90px;background:var(--teal);left:6%;top:60px}
+.b2{width:60px;height:60px;background:var(--pink);right:8%;top:120px;animation-delay:1s}
+.b3{width:44px;height:44px;background:var(--yellow);left:14%;bottom:40px;animation-delay:2s}
+@keyframes fl{50%{transform:translateY(-14px) rotate(8deg)}}
+@media(prefers-reduced-motion:reduce){.blob{animation:none}}
+
+.hero .wrap{position:relative;z-index:1}
+.count{display:flex;justify-content:center;gap:12px;margin-top:36px;flex-wrap:wrap}
+.count div{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 18px;min-width:78px;box-shadow:4px 4px 0 var(--line)}
+.count strong{display:block;font-family:Fredoka,sans-serif;font-size:2rem}
+.count small{color:var(--muted);font-size:.75rem}
+section{padding:56px 0}
+h2{font-size:2rem;margin-bottom:6px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:22px;box-shadow:5px 5px 0 var(--line)}
+.card .ic{font-size:1.8rem}.card h3{margin:8px 0 4px;font-size:1.2rem}.card p{margin:0;color:var(--muted);font-size:.93rem}
+.c1{background:#ffe2ea}.c2{background:#fff0bd}.c3{background:#cdf3ef}.c4{background:#dfe2ff}
+.card[class*="c"] p{color:#4a4566}.card[class*="c"]{color:#1f1a3d}
+.tl{border-left:3px dashed var(--line);margin-left:10px;padding-left:24px}
+.tl div{margin-bottom:22px;position:relative}
+.tl div:before{content:"";position:absolute;left:-34px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--pink);border:2px solid var(--line)}
+.tl b{font-family:Fredoka,sans-serif;font-size:1.1rem}.tl span{color:var(--muted);font-size:.9rem;display:block}
+.formal{background:var(--ink);color:var(--bg);border-radius:24px;padding:36px}
+.formal h2{color:var(--yellow)}.formal p{color:inherit;opacity:.85;max-width:640px}
+
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:20px}
+.info div{border:1.5px solid var(--yellow);border-radius:12px;padding:12px 16px;font-size:.9rem}
+.info small{display:block;color:var(--yellow);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.7rem}
+form{display:grid;gap:12px;max-width:480px}
+input,select{font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+#ok{display:none;font-weight:600;color:var(--teal)}
+footer{border-top:2px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.88rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{font:600 .9rem Inter,sans-serif;padding:9px 18px;border:2px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink);cursor:pointer}
+.tab.on{background:var(--pink);color:#fff;box-shadow:3px 3px 0 var(--line)}
+.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.poster{border:2px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:4px 4px 0 var(--line);transition:.15s}
+.poster:hover{transform:translateY(-4px)}
+.poster .art{aspect-ratio:2/3;display:flex;align-items:flex-end;padding:12px;color:#fff;font:700 1.15rem/1.1 Fredoka,sans-serif;position:relative;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.poster.ph .art{aspect-ratio:4/5}
+.poster .art i{position:absolute;top:10px;right:10px;font-style:normal;font-size:1.7rem}
+.poster .meta{padding:10px 12px;font-size:.78rem;color:var(--muted)}
+.poster .meta b{display:block;color:var(--ink);font-size:.86rem}
+.show{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;box-shadow:4px 4px 0 var(--line)}
+.show .mini{width:52px;height:78px;border-radius:8px;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:1.4rem}
+.show .t{flex:1;min-width:150px}.show .t b{font-family:Fredoka,sans-serif;font-size:1.1rem}.show .t span{display:block;color:var(--muted);font-size:.85rem}
+.times{display:flex;gap:8px;flex-wrap:wrap}
+.times span{border:2px solid var(--line);border-radius:10px;padding:4px 12px;font-weight:600;font-size:.88rem;background:var(--yellow);color:#1f1a3d}
+.idgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:start}
+label{font-weight:600;font-size:.85rem;display:grid;gap:4px}
+#cv{width:100%;height:auto;border-radius:20px;box-shadow:5px 5px 0 var(--line)}
+
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.row .btn{box-shadow:3px 3px 0 var(--line);padding:10px 16px;font:600 .88rem Inter,sans-serif;cursor:pointer}
+#msg{min-height:1.4em;font-weight:600;color:var(--teal);font-size:.9rem}
+nav a.q{background:var(--yellow);color:#1f1a3d;padding:4px 12px;border-radius:99px;border:2px solid var(--line)}
+nav ul{overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none;padding:6px 4px}nav ul::-webkit-scrollbar{display:none}nav li{flex:none}
+.hero{min-height:calc(100svh - 56px - env(safe-area-inset-top,0px));display:flex;align-items:center}
+.hero .wrap{width:100%}
+.hg{display:grid;gap:28px;align-items:center}
+@media(min-width:860px){.hg{grid-template-columns:1.3fr 1fr}.hg .ht{text-align:left}.hg .sub{margin-left:0!important}.hg .count{justify-content:flex-start}}
+@media(max-width:859px){.mascot{max-width:200px!important}}
+.mascot{aspect-ratio:1;max-width:340px;width:100%;margin:0 auto;border:3px dashed var(--line);border-radius:36px;display:grid;place-items:center;text-align:center;padding:20px;background:rgba(255,255,255,.35);color:var(--muted);font-size:.9rem}
+.mascot b{font-family:Fredoka,sans-serif;font-size:1.3rem;color:var(--ink);display:block;margin-bottom:4px}
+.card.s1{background:#ff9db8}.card.s2{background:#6fe0d3}.card.s3{background:#ffd75e}
+.card.s1 p,.card.s2 p,.card.s3 p{color:#2c2650}
+.rail{position:relative}
+.posters{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 8px 14px;scrollbar-width:none}
+.posters::-webkit-scrollbar{display:none}
+.poster{flex:0 0 170px;scroll-snap-align:start;cursor:pointer}
+.arr{position:absolute;left:-6px;top:42%;z-index:2;width:42px;height:42px;border-radius:50%;border:2px solid var(--line);background:var(--yellow);color:#1f1a3d;font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:3px 3px 0 var(--line)}
+.arr.r{left:auto;right:-6px}
+.modal{position:fixed;inset:0;background:rgba(20,16,45,.6);display:none;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));z-index:20}
+.modal.on{display:flex}
+.mbox{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:22px;box-shadow:6px 6px 0 var(--line);max-width:640px;width:100%;max-height:100%;overflow:auto;display:flex;flex-wrap:wrap;position:relative}
+.mbox .art{width:190px;min-height:240px;flex:none;display:grid;place-items:center;font-size:4rem}
+.mbox .tx{flex:1;min-width:240px;padding:22px}
+.mbox h3{font-size:1.5rem}.mbox .mt{color:var(--muted);font-size:.85rem;margin:2px 0 10px}
+.xb{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--yellow);color:#1f1a3d;cursor:pointer;font-size:1rem}
+
+.aud{display:none;align-items:center;gap:10px;margin-top:16px;background:var(--bg);border:2px solid var(--line);border-radius:99px;padding:6px 14px 6px 6px}
+.aud button{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:var(--pink);color:#fff;cursor:pointer}
+.aud .bar{flex:1;height:8px;border-radius:9px;background:rgba(127,127,127,.3);overflow:hidden}
+.aud .bar i{display:block;height:100%;width:0;background:var(--teal)}
+.aud small{font-size:.75rem;color:var(--muted)}
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.nw{border:2px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:5px 5px 0 var(--line);cursor:pointer;transition:.15s}
+.nw:hover{transform:translateY(-4px)}
+.nw .art{aspect-ratio:16/10;display:grid;place-items:center;font-size:3.2rem;position:relative}
+.nw .art em{position:absolute;left:10px;top:10px;background:#fff;color:#1f1a3d;border:2px solid #1f1a3d;border-radius:99px;padding:2px 10px;font:600 .72rem Inter,sans-serif;font-style:normal}
+.nw div.b{padding:14px 16px}.nw h3{font-size:1.15rem}.nw p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.page{position:fixed;inset:0;background:var(--bg);color:var(--ink);z-index:30;overflow:auto;display:none;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px))}
+.page.on{display:block}
+.page article{max-width:680px;margin:0 auto}
+.page .art{aspect-ratio:16/7;border:2px solid var(--line);border-radius:20px;display:grid;place-items:center;font-size:4rem;margin:16px 0}
+.page h1{font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.15}.page p{font-size:1.02rem}
+.pm{color:var(--muted);font-size:.85rem}
+.rv{opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1.2)}
+.rv.in{opacity:1;transform:none}
+.lt{display:inline-block;animation:drop .7s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*90ms);cursor:default}
+.lt:hover{animation:wob .5s}
+@keyframes drop{from{opacity:0;transform:translateY(-44px) rotate(-14deg)}}
+@keyframes wob{25%{transform:rotate(-10deg) scale(1.1)}75%{transform:rotate(10deg) scale(1.1)}}
+.tag{animation:wig 3s ease-in-out infinite}
+@keyframes wig{50%{transform:rotate(2deg) translateY(-3px)}}
+.mascot{animation:bob 4.5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.hero .btn:not(.alt){animation:pls 2.4s ease-in-out infinite}
+@keyframes pls{50%{box-shadow:4px 4px 0 var(--line),0 0 0 9px rgba(75,91,255,.22)}}
+#s{display:inline-block;animation:tk 1s ease-out infinite}
+@keyframes tk{0%{transform:scale(1.18)}35%{transform:scale(1)}}
+.mq{background:var(--ink);color:var(--yellow);overflow:hidden;white-space:nowrap;border-block:2px solid var(--line);font:700 1rem Fredoka,sans-serif;padding:10px 0}
+.mq div{display:inline-block;animation:mq 24s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card{transition:transform .2s}.card:hover{transform:translateY(-6px) rotate(-1deg)}
+.card .ic{display:inline-block;transition:transform .3s}.card:hover .ic{transform:scale(1.3) rotate(12deg)}
+.tl div:before{animation:ring 2.2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,92,138,.6)}100%{box-shadow:0 0 0 12px rgba(255,92,138,0)}}
+.modal.on .mbox{animation:pp .3s cubic-bezier(.2,1.4,.4,1)}
+.page.on{animation:fu .35s ease-out}
+@keyframes pp{from{opacity:0;transform:scale(.88)}}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}}
+@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><div class="logo">KRE<span>MA</span></div>
+<ul><li><a href="#tentang">Tentang</a></li><li><a href="#katalog">Katalog</a></li><li><a class="q" href="#screening">🎟️ Screening</a></li><li><a class="q" href="#denah">🗺️ Denah Venue</a></li><li><a href="#berita">Artikel</a></li><li><a href="#niskala">Niskala ID</a></li></ul></div></nav>
+
+<header class="hero">
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div class="wrap hg"><div class="ht">
+<span class="tag">✨ ISI Yogyakarta · 2026</span>
+<h1>KRE<b>MA</b></h1>
+<p class="sub"><strong>Kreasi Mahasiswa</strong> — panggung karya, ide, dan keberanian mahasiswa untuk berkarya bersama dengan riang dan bermakna.</p>
+<a class="btn" href="#katalog">Lihat Katalog</a><a class="btn alt" href="#niskala">Buat Niskala ID</a>
+<div class="count" aria-label="Hitung mundur"><div><strong id="d">--</strong><small>Hari</small></div><div><strong id="h">--</strong><small>Jam</small></div><div><strong id="m">--</strong><small>Menit</small></div><div><strong id="s">--</strong><small>Detik</small></div></div></div>
+<div class="mascot"><div><b>🐾 Ruang Maskot</b>Tempatkan gambar maskot KREMA di sini</div></div>
+</div>
+</header>
+<div class="mq" aria-hidden="true"><div><span>✦ PAMERAN KARYA ✦ SCREENING ✦ BAZAR UMKM ✦ 25–28 NOVEMBER 2026 ✦ ISI YOGYAKARTA </span><span>✦ PAMERAN KARYA ✦ SCREENING ✦ BAZAR UMKM ✦ 25–28 NOVEMBER 2026 ✦ ISI YOGYAKARTA </span><span>✦ PAMERAN KARYA ✦ SCREENING ✦ BAZAR UMKM ✦ 25–28 NOVEMBER 2026 ✦ ISI YOGYAKARTA </span><span>✦ PAMERAN KARYA ✦ SCREENING ✦ BAZAR UMKM ✦ 25–28 NOVEMBER 2026 ✦ ISI YOGYAKARTA </span></div></div>
+
+<section id="tentang"><div class="wrap">
+<h2>Tentang KREMA</h2>
+<p class="lead">KREMA adalah ajang tahunan yang mempertemukan mahasiswa lintas disiplin untuk memamerkan dan merayakan karya kreatif, mulai dari film, animasi, hingga fotografi.</p>
+<div class="grid">
+<div class="card c1"><div class="ic">🎨</div><h3>Berkarya</h3><p>Ruang bebas bagi gagasan orisinal mahasiswa.</p></div>
+<div class="card c2"><div class="ic">🤝</div><h3>Berkolaborasi</h3><p>Bertemu dan bertukar ide lintas program studi.</p></div>
+<div class="card c3"><div class="ic">🌱</div><h3>Bertumbuh</h3><p>Belajar dari karya dan sesama kreator.</p></div>
+<div class="card c4"><div class="ic">🎉</div><h3>Merayakan</h3><p>Pameran, screening, dan bazar UMKM yang meriah.</p></div>
+</div></div></section>
+
+<section id="acara"><div class="wrap">
+<h2>Rangkaian Acara</h2>
+<p class="lead">Tiga kegiatan utama yang terbuka untuk mahasiswa dan masyarakat umum.</p>
+<div class="grid">
+<div class="card s1"><div class="ic">🖼️</div><h3>Pameran Karya</h3><p>Karya film, animasi, dan fotografi mahasiswa dipamerkan untuk umum.</p></div>
+<div class="card s2"><div class="ic">🎞️️</div><h3>Screening</h3><p>Pemutaran film dan animasi mahasiswa di studio sesuai jadwal.</p></div>
+<div class="card s3"><div class="ic">🛍️</div><h3>Bazar UMKM</h3><p>Produk dan jajanan kreatif dari para pelaku UMKM.</p></div>
+</div></div></section>
+
+<section id="jadwal"><div class="wrap">
+<h2>Jadwal</h2>
+<p class="lead">Rencana pelaksanaan (dapat disesuaikan oleh panitia).</p>
+<div class="tl">
+<div><b>Hari 1 · Pembukaan</b><span>Upacara pembukaan, sambutan, dan peresmian pameran</span></div>
+<div><b>Hari 2 · Screening &amp; Bazar UMKM</b><span>Pemutaran film dan animasi, serta bazar produk UMKM</span></div>
+<div><b>Hari 3 · Pameran &amp; Screening</b><span>Kunjungan karya dan sesi screening sepanjang hari</span></div>
+<div><b>Hari 4 · Penutupan</b><span>Penghargaan karya dan malam apresiasi</span></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="formal">
+<h2>Informasi Pelaksanaan</h2>
+<p>Kegiatan diselenggarakan oleh mahasiswa Institut Seni Indonesia Yogyakarta dan terbuka bagi seluruh peserta yang telah melakukan pendaftaran.</p>
+<div class="info">
+<div><small>Tanggal</small>25 – 28 November 2026</div>
+<div><small>Lokasi</small>Kampus ISI Yogyakarta</div>
+<div><small>Tiket</small>Gratis, wajib mendaftar</div>
+<div><small>Kontak</small>@krema.isiyk</div>
+</div></div></div></section>
+
+<section id="katalog"><div class="wrap">
+<h2>Katalog Karya</h2>
+<p class="lead">Karya mahasiswa yang dipamerkan.</p>
+<div class="tabs" id="ct" role="tablist"></div><div class="rail"><button class="arr" id="rl" aria-label="Geser kiri">‹</button><div class="posters" id="cg"></div><button class="arr r" id="rr" aria-label="Geser kanan">›</button></div>
+</div></section>
+
+<section id="screening"><div class="wrap">
+<h2>Jadwal Screening</h2>
+<p class="lead">Pilih hari untuk melihat film dan animasi beserta jam tayangnya.</p>
+<div class="tabs" id="sd"></div><div id="sl"></div>
+</div></section>
+
+<section id="denah"><div class="wrap">
+<h2>Denah Venue</h2>
+<p class="lead">Peta area acara untuk membantu Anda menemukan pameran, studio screening, dan bazar UMKM.</p>
+<svg viewBox="0 0 600 340" role="img" aria-label="Denah venue KREMA" style="width:100%;height:auto;max-width:780px;display:block">
+<rect x="2" y="2" width="596" height="336" rx="18" style="fill:var(--card);stroke:var(--line);stroke-width:3"/>
+<g stroke="#1f1a3d" stroke-width="2.5" font-family="Fredoka,sans-serif" font-size="17" text-anchor="middle" fill="#1f1a3d">
+<rect x="20" y="20" width="270" height="180" rx="12" fill="#ff9db8"/><text x="155" y="115" stroke="none">Area Pameran Karya</text>
+<rect x="310" y="20" width="130" height="85" rx="12" fill="#6fe0d3"/><text x="375" y="68" stroke="none">Studio 1</text>
+<rect x="450" y="20" width="130" height="85" rx="12" fill="#6fe0d3"/><text x="515" y="68" stroke="none">Studio 2</text>
+<rect x="310" y="120" width="270" height="80" rx="12" fill="#ffd75e"/><text x="445" y="166" stroke="none">Bazar UMKM</text>
+<rect x="20" y="215" width="170" height="105" rx="12" fill="#dfe2ff"/><text x="105" y="272" stroke="none">Pusat Informasi</text>
+<rect x="205" y="215" width="130" height="105" rx="12" fill="#cdf3ef"/><text x="270" y="272" stroke="none">Toilet &amp; Mushola</text>
+<rect x="350" y="215" width="230" height="105" rx="12" fill="#fff0bd"/><text x="465" y="272" stroke="none">🚪 Pintu Masuk / Lobi</text>
+</g></svg>
+<p class="pm">Ilustrasi denah, akan disesuaikan dengan tata letak venue yang sebenarnya.</p>
+</div></section>
+
+<section id="berita"><div class="wrap">
+<h2>Artikel</h2>
+<p class="lead">Kabar terbaru dan potret dari balik layar KREMA.</p>
+<div class="news" id="nl"></div>
+</div></section>
+
+<section id="niskala"><div class="wrap">
+<h2>Niskala ID</h2>
+<p class="lead">Buat kartu identitas pengunjungmu sendiri. Isi datanya, nomor ID dibuat otomatis, lalu simpan ke perangkatmu.</p>
+<div class="idgrid">
+<form id="nf" onsubmit="return false">
+<label>Nama<input id="n_nama" placeholder="Nama lengkap" maxlength="40"></label>
+<label>Jenis kelamin<select id="n_kel"><option>Laki-laki</option><option>Perempuan</option><option>Tidak ingin menyebut</option></select></label>
+<label>Domisili<input id="n_dom" placeholder="Contoh: Sleman, DIY" maxlength="40"></label>
+<label>Jurusan<select id="n_jur"><option>Film dan Televisi</option><option>Animasi</option><option>Fotografi</option><option>Lainnya</option></select></label>
+<!-- Tanggal berlaku disembunyikan dan diatur ke 1500 tahun ke depan -->
+<input id="n_tgl" type="hidden" value="3526-11-28">
+<label>Warna kartu<select id="n_tema"><option value="0">Pelangi</option><option value="1">Tosca</option><option value="2">Matahari</option></select></label>
+<div class="row">
+    <button class="btn" type="button" id="b_png">⬇️ Simpan Kartu</button>
+</div>
+</form>
+<div><canvas id="cv" width="640" height="400" aria-label="Pratinjau kartu Niskala ID"></canvas><p id="msg"></p></div>
+</div></div></section>
+
+<footer><div class="wrap">© 2026 KREMA · Institut Seni Indonesia Yogyakarta<br>Dibuat dengan semangat berkarya ✌️</div></footer>
+
+<script>
+const t=new Date("2026-11-25T09:00:00+07:00");
+function tick(){let x=Math.max(0,t-Date.now())/1000;const v={d:x/86400,h:x%86400/3600,m:x%3600/60,s:x%60};for(const k in v)document.getElementById(k).textContent=String(Math.floor(v[k])).padStart(2,"0")}
+tick();setInterval(tick,1000);
+</script>
+<script>
+const $=i=>document.getElementById(i);
+const CAT={
+film:{l:"🎬 Film dan Televisi",it:[["Senja di Malioboro","Drama","Rani Putri","#ff5c8a","#7a1fa2","🌇"],["Bayang Kraton","Thriller","Dimas Aji","#1f1a3d","#4b5bff","🕵️"],["Tiga Hari Menuju Pulang","Keluarga","Sekar Ayu","#ffc933","#ff5c8a","🚂"],["Gamelan Terakhir","Dokumenter","Bagas Wira","#19b3a6","#1f1a3d","🥁"],["Lampu Merah","Komedi","Tita Laras","#ff5c8a","#ffc933","🚦"],["Hujan Bulan Kota","Romansa","Nadia Sari","#4b5bff","#19b3a6","☔"]]},
+anim:{l:"✏️ Animasi",it:[["Si Kancil Digital","Anak","Studio Gembira","#19b3a6","#ffc933","🦌"],["Wayang Neon","Fantasi","Arya Kusuma","#7a1fa2","#ff5c8a","🎭"],["Gunung & Awan","Petualangan","Lintang Raya","#4b5bff","#19b3a6","⛰️"],["Tuk-Tuk Berkelana","Komedi","Rio Pamungkas","#ffc933","#4b5bff","🛺"],["Kota di Dalam Botol","Sci-Fi","Maya Ningrum","#1f1a3d","#19b3a6","🏙️"],["Nyala Kecil","Drama","Elang Bumi","#ff5c8a","#4b5bff","🕯️"]]},
+foto:{l:"📷 Fotografi",it:[["Pasar Pagi","Dokumenter","Yoga Pratama","#ffc933","#ff5c8a","🧺"],["Cahaya Merapi","Lanskap","Dewi Lestari","#ff5c8a","#1f1a3d","🌋"],["Wajah Kota","Potret","Fajar Nugroho","#4b5bff","#7a1fa2","🙂"],["Bayangan Siang","Street","Intan Permata","#19b3a6","#4b5bff","🚲"],["Sudut Beringharjo","Arsitektur","Galih Saputra","#7a1fa2","#ffc933","🏛️"],["Senyap di Pantai","Lanskap","Putri Anjani","#19b3a6","#ffc933","🌊"]]}};
+let ck="film";
+function renderCat(){
+ $("ct").innerHTML=Object.keys(CAT).map(k=>'<button class="tab'+(k===ck?' on':'')+'" data-k="'+k+'">'+CAT[k].l+'</button>').join("");
+ $("cg").innerHTML=CAT[ck].it.map((a,i)=>'<div tabindex="0" data-i="'+i+'" class="poster'+(ck==="foto"?' ph':'')+'"><div class="art" style="background:linear-gradient(160deg,'+a[3]+','+a[4]+')"><i>'+a[5]+'</i>'+a[0]+'</div><div class="meta"><b>'+a[1]+'</b>'+a[2]+' · 2026</div></div>').join("");
+}
+$("ct").onclick=e=>{const k=e.target.dataset.k;if(k){ck=k;renderCat();$("cg").scrollLeft=0}};
+renderCat();
+const SCR=[["Rab 25 Nov",[["film",0,"Studio 1","10:00 13:00 16:00"],["anim",0,"Studio 2","10:30 13:30 16:30"],["film",3,"Studio 1","19:00"]]],
+["Kam 26 Nov",[["film",1,"Studio 1","11:00 14:00 17:00"],["anim",1,"Studio 2","11:30 14:30"],["anim",4,"Studio 2","18:00 20:00"]]],
+["Jum 27 Nov",[["film",2,"Studio 1","10:00 13:00"],["film",4,"Studio 1","16:00 19:00"],["anim",2,"Studio 2","12:00 15:00 18:30"]]],
+["Sab 28 Nov",[["film",5,"Studio 1","10:00 13:00 16:00"],["anim",3,"Studio 2","10:30 13:30"],["anim",5,"Studio 2","16:00 19:30"]]]];
+let sd=0;
+function renderScr(){
+ $("sd").innerHTML=SCR.map((d,i)=>'<button class="tab'+(i===sd?' on':'')+'" data-i="'+i+'">'+d[0]+'</button>').join("");
+ $("sl").innerHTML=SCR[sd][1].map(r=>{const a=CAT[r[0]].it[r[1]];return '<div class="show"><div class="mini" style="background:linear-gradient(160deg,'+a[3]+','+a[4]+')">'+a[5]+'</div><div class="t"><b>'+a[0]+'</b><span>'+a[1]+' · '+(r[0]==="film"?"Film":"Animasi")+' · '+r[2]+'</span></div><div class="times">'+r[3].split(" ").map(t=>'<span>'+t+'</span>').join("")+'</div></div>'}).join("");
+}
+$("sd").onclick=e=>{const i=e.target.dataset.i;if(i!==undefined){sd=+i;renderScr()}};
+renderScr();
+
+const TH=[["#4b5bff","#ff5c8a"],["#19b3a6","#4b5bff"],["#ffc933","#ff5c8a"]];
+let NO="";
+function gen(){const a=new Uint32Array(1);crypto.getRandomValues(a);NO="NSK-2026-"+String(a[0]%1000000).padStart(6,"0");draw()}
+function fd(v){const d=new Date(v+"T00:00:00");return isNaN(d)?"-":d.toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})}
+function draw(){
+ const c=$("cv"),x=c.getContext("2d"),W=640,H=400,t=TH[+$("n_tema").value];
+ x.clearRect(0,0,W,H);
+ const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,t[0]);g.addColorStop(1,t[1]);
+ x.fillStyle=g;x.beginPath();x.roundRect(0,0,W,H,28);x.fill();
+ x.fillStyle="rgba(255,201,51,.9)";x.beginPath();x.arc(580,50,64,0,7);x.fill();
+ x.fillStyle="rgba(255,255,255,.35)";x.beginPath();x.arc(30,390,70,0,7);x.fill();
+ x.fillStyle="rgba(255,255,255,.94)";x.beginPath();x.roundRect(22,22,W-44,H-44,20);x.fill();
+ x.fillStyle="#1f1a3d";x.font="700 30px Fredoka,sans-serif";x.fillText("NISKALA ID",44,68);
+ x.font="500 14px Inter,sans-serif";x.fillStyle="#5d5878";x.fillText("KREMA · ISI Yogyakarta 2026",44,90);
+ x.fillStyle=t[1]==="#ff5c8a"?"#e0386b":t[1];x.font="700 36px Fredoka,sans-serif";x.fillText(NO,44,148);
+ x.fillStyle="#1f1a3d";x.font="700 26px Fredoka,sans-serif";x.fillText($("n_nama").value||"Nama Anda",44,200,540);
+ const f=(l,v,px,py)=>{x.font="600 12px Inter,sans-serif";x.fillStyle="#5d5878";x.fillText(l.toUpperCase(),px,py);x.font="600 18px Inter,sans-serif";x.fillStyle="#1f1a3d";x.fillText(v||"-",px,py+24,260)};
+ 
+ f("Jenis kelamin",$("n_kel").value,44,250);f("Domisili",$("n_dom").value,44,315);
+ // Menggeser posisi Jurusan dan Berlaku s.d. untuk memberi ruang bagi QR Code
+ f("Jurusan",$("n_jur").value,280,250);f("Berlaku s.d.",fd($("n_tgl").value),280,315);
+
+ // Menambahkan QR Code Instagram
+ if(window.QRious){
+   const qr = new QRious({
+     value: 'https://www.instagram.com/kreasimahasiswa/',
+     size: 80,
+     background: '#ffffff',
+     foreground: '#1f1a3d'
+   });
+   x.fillStyle="#ffffff";
+   x.beginPath();
+   x.roundRect(510, 270, 88, 88, 8);
+   x.fill();
+   x.drawImage(qr.canvas, 514, 274);
+ }
+}
+$("nf").addEventListener("input",draw);
+
+function msg(t){$("msg").textContent=t}
+async function save(fn,data){
+ try{const dl=window.claude&&await claude.use("downloads");
+  if(!dl){msg("Fitur simpan belum tersedia di tampilan ini.");return}
+  await dl.save({filename:fn,data});msg("Tersimpan ✅")}
+ catch(e){msg(e&&e.code==="declined"?"Penyimpanan dibatalkan.":"Gagal menyimpan, silakan coba lagi.")}
+}
+$("b_png").onclick=async()=>{const b=await new Promise(r=>$("cv").toBlob(r));save("niskala-id-"+NO+".png",new Uint8Array(await b.arrayBuffer()))};
+gen();
+if(document.fonts)document.fonts.ready.then(draw);
+</script>
+<div class="modal" id="md"><div class="mbox"><button class="xb" id="mx" aria-label="Tutup">✕</button><div class="art" id="ma"></div><div class="tx"><h3 id="mh"></h3><div class="mt" id="mm"></div><p id="mp"></p>
+<div class="aud" id="au"><button id="ap" aria-label="Putar audio">▶</button><div class="bar"><i id="ab"></i></div><small>Sinopsis audio</small></div></div></div></div>
+<div class="page" id="pg"><article><button class="btn alt" id="pb" style="cursor:pointer;font:600 .9rem Inter,sans-serif">‹ Kembali</button><div class="pm" id="pk" style="margin-top:20px"></div><h1 id="pt"></h1><div class="pm" id="pd"></div><div class="art" id="pa"></div><div id="pc"></div></article></div>
+<script>
+const SY={
+film:["Seorang fotografer jalanan bertemu kembali dengan teman lama di senja Malioboro, dan masa lalu yang belum selesai pun terbuka.","Penjaga museum menemukan lorong rahasia di balik dinding kraton dan jejak misteri yang menunggu diungkap.","Tiga bersaudara menempuh perjalanan kereta menuju kampung halaman, belajar berdamai dengan perbedaan di sepanjang jalan.","Dokumenter tentang pengrajin gamelan terakhir di desanya dan upayanya mewariskan bunyi kepada generasi muda.","Satu persimpangan, sepuluh menit lampu merah, dan sederet kejadian kocak yang menimpa para pengendara.","Dua orang asing berbagi payung saat hujan, lalu kota perlahan mempertemukan mereka berulang kali."],
+anim:["Kancil legendaris hidup di kota digital, dan kecerdikannya diuji oleh robot-robot yang tak mudah ditipu.","Bayangan wayang berwarna neon bangkit di malam hari dan mengajak seorang anak berkeliling dunia cahaya.","Seekor awan kecil bersahabat dengan gunung dan bersama mencari tempat untuk menurunkan hujan.","Tuk-tuk mungil menjelajah Nusantara sambil mengantar penumpang yang punya ceritanya sendiri.","Sebuah kota utuh tersimpan di dalam botol kaca, dan para penghuninya bermimpi melihat dunia luar.","Lilin kecil yang hampir padam berjuang menjaga nyalanya melewati malam yang panjang."],
+foto:["Potret kesibukan pasar sebelum fajar: tangan-tangan yang menawar, menimbang, dan menyapa.","Cahaya pagi yang menyentuh lereng Merapi, direkam dalam serangkaian lanskap yang tenang.","Wajah-wajah warga kota yang ditemui sepanjang satu bulan, lengkap dengan cerita singkat mereka.","Bayangan panjang dan terang tajam siang hari menjadi panggung bagi para pesepeda dan pejalan kaki.","Garis, pola, dan tekstur bangunan di sekitar Beringharjo dilihat dari sudut yang jarang diperhatikan.","Pantai di waktu sepi, ketika ombak dan cakrawala menjadi satu-satunya penghuni bingkai."]};
+let SPK="";
+const ss=window.speechSynthesis;
+function stopA(){if(ss)ss.cancel();$("ap").textContent="▶";$("ab").style.width="0"}
+function openCat(i){
+ const a=CAT[ck].it[i];SPK=SY[ck][i];
+ $("ma").style.background="linear-gradient(160deg,"+a[3]+","+a[4]+")";$("ma").textContent=a[5];
+ $("mh").textContent=a[0];$("mm").textContent=a[1]+" · "+a[2]+" · 2026";$("mp").textContent=SPK;
+ $("au").style.display=(ck==="foto"&&ss)?"flex":"none";stopA();$("md").classList.add("on");
+}
+function closeM(){stopA();$("md").classList.remove("on")}
+$("cg").onclick=e=>{const c=e.target.closest(".poster");if(c)openCat(+c.dataset.i)};
+$("cg").onkeydown=e=>{if(e.key==="Enter"){const c=e.target.closest(".poster");if(c)openCat(+c.dataset.i)}};
+$("mx").onclick=closeM;$("md").onclick=e=>{if(e.target.id==="md")closeM()};
+$("rl").onclick=()=>$("cg").scrollBy({left:-340,behavior:"smooth"});
+$("rr").onclick=()=>$("cg").scrollBy({left:340,behavior:"smooth"});
+$("ap").onclick=()=>{
+ if(!ss)return;
+ if(ss.speaking&&!ss.paused){ss.pause();$("ap").textContent="▶"}
+ else if(ss.paused){ss.resume();$("ap").textContent="⏸"}
+ else{const u=new SpeechSynthesisUtterance(SPK);u.lang="id-ID";
+  u.onboundary=e=>{$("ab").style.width=(e.charIndex/SPK.length*100)+"%"};
+  u.onend=()=>{$("ab").style.width="100%";$("ap").textContent="▶"};
+  ss.speak(u);$("ap").textContent="⏸"}
+};
+const AR=[
+["Berita","KREMA 2026 Resmi Dibuka","Empat hari penuh karya mahasiswa siap menyapa Yogyakarta.","#ff5c8a","#7a1fa2","📰","25 November 2026",["Kreasi Mahasiswa (KREMA) ISI Yogyakarta resmi dibuka dengan pameran karya, screening, dan bazar UMKM yang berlangsung selama empat hari.","Pengunjung dapat menikmati karya dari jurusan Film dan Televisi, Animasi, dan Fotografi, lalu menutup hari dengan menjelajah bazar."]],
+["Foto","Di Balik Layar Pameran","Sebelum pintu dibuka, ruang pameran lebih dulu menjadi panggung kerja bersama.","#ffc933","#ff5c8a","📸","22 November 2026",["Tim kurator dan mahasiswa menata karya satu per satu, mulai dari mengatur cahaya hingga memilih posisi poster dan foto.","Hasil kerja bersama itu kini dapat dinikmati pengunjung selama KREMA berlangsung."]],
+["Berita","Sineas Muda Bicara Karya","Tiga mahasiswa bercerita tentang ide, proses, dan tantangan di balik filmnya.","#19b3a6","#4b5bff","🎬","24 November 2026",["Para sineas muda ISI Yogyakarta berbagi pengalaman mengerjakan film pendek, dari riset naskah hingga pascaproduksi.","Karya mereka dapat disaksikan pada jadwal screening KREMA."]]];
+$("nl").innerHTML=AR.map((a,i)=>'<div class="nw" tabindex="0" data-i="'+i+'"><div class="art" style="background:linear-gradient(160deg,'+a[3]+','+a[4]+')"><em>'+a[0]+'</em>'+a[5]+'</div><div class="b"><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div></div>').join("");
+function openA(i){const a=AR[i];$("pk").textContent=a[0];$("pt").textContent=a[1];$("pd").textContent=a[6];
+ $("pa").style.background="linear-gradient(160deg,"+a[3]+","+a[4]+")";$("pa").textContent=a[5];
+ $("pc").innerHTML=a[7].map(t=>"<p>"+t+"</p>").join("");$("pg").classList.add("on");$("pg").scrollTop=0}
+$("nl").onclick=e=>{const c=e.target.closest(".nw");if(c)openA(+c.dataset.i)};
+$("nl").onkeydown=e=>{if(e.key==="Enter"){const c=e.target.closest(".nw");if(c)openA(+c.dataset.i)}};
+$("pb").onclick=()=>$("pg").classList.remove("on");
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeM();$("pg").classList.remove("on")}});
+const hh=document.querySelector(".hero h1"),L=(t,o)=>[...t].map((c,i)=>'<span class="lt" style="--i:'+(i+o)+'">'+c+'</span>').join("");
+hh.innerHTML=L("KRE",0)+"<b>"+L("MA",3)+"</b>";
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches&&"IntersectionObserver"in window){
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add("in");io.unobserve(t);setTimeout(()=>{t.classList.remove("rv","in");t.style.transitionDelay=""},1200)}}),{threshold:.12});
+ document.querySelectorAll("section h2,section .lead,.card,.tl>div,.nw,.formal,#denah svg,.idgrid>*,.tabs").forEach(el=>{
+  el.style.transitionDelay=Math.min([...el.parentNode.children].indexOf(el),5)*80+"ms";el.classList.add("rv");io.observe(el)})}
+</script>
+</body>
+</html>
